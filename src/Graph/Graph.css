@@ -1,0 +1,20 @@
+.bar-graph {
+  width: 70%;
+  height: 80vh;
+  padding: 0 1px;
+  border-radius: 2px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(2px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(2px, 1fr));
+  grid-gap: 1px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  background-color: #f0f0f0;
+}
+
+.array-bar {
+  background-color: turquoise;
+}
+/*# sourceMappingURL=Visualizer.css.map */

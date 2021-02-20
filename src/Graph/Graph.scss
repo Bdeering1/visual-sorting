@@ -1,0 +1,16 @@
+.bar-graph {
+    width: 70%;
+    height: 80vh;
+    padding: 0 1px;
+    border-radius: 2px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2px, 1fr));
+    grid-gap: 1px;
+    align-items: end;
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.array-bar {
+    background-color: turquoise;
+}

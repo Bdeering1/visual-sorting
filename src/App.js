@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import Graph from './Graph/Graph';
+import Util from './Algorithms/Util';
 
 function App() {
   return (
     <div className="App">
-      <SortingVisualizer/>
+      <Graph />
     </div>
   );
 }
