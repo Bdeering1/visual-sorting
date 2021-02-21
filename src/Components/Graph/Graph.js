@@ -16,8 +16,6 @@ export default class Graph extends React.Component {
   }
 
   render() {
-    console.log(this.props.array);
-
     return (
 
       <div className="bar-graph" >
