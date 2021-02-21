@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,UAAU,CAAC;EACP,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,KAAK;EACd,aAAa,EAAE,GAAG;EAElB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,kCAAkC;EACzD,QAAQ,EAAE,GAAG;EACb,WAAW,EAAE,GAAG;EAChB,gBAAgB,EAAE,OAAsB;CAC3C;;AAED,AAAA,UAAU,CAAC;EACP,gBAAgB,EAAE,SAAS;CAC9B",
     "sources": [
-        "Visualizer.scss"
+        "Graph.scss"
     ],
     "names": [],
-    "file": "Visualizer.css"
+    "file": "Graph.css"
 }
