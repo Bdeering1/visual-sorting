@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Menu from './Menu/Menu';
 import Graph from './Graph/Graph';
-import { randFromInterval } from '../Utility/Utils';
+import { randFromInterval } from '../Utility/Util';
 
 export default class App extends React.Component {
   constructor(props) {
