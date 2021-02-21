@@ -4,15 +4,9 @@ import './Graph.css';
 export default class Graph extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      array: []
-    };
   }
   componentDidMount() {
-    this.props.generateArray();
-    this.setState({
-      array: this.props.array
-    })
+    this.props.resetArray();
   }
 
   render() {

@@ -1,38 +1,33 @@
+/*
+ * Note: I used more Redux features here than required by the complexity of this
+ * app as practice for larger projects and a demonstration of my knowledge
+*/
+
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import App from '../Components/App';
+import { Provider, connect } from 'react-redux';
+import store from './store';
+import { updateArray } from './reducer';
+import Interface from '../Components/Interface';
 
 
-const UPDATE_ARRAY = 'UPDATE_ARRAY';
+const mapStateToProps = (state) => {
+    return { array: state.array }
+};
 
-const updateArray = (newArray) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        type: UPDATE_ARRAY,
-        newArray
+        updateArray: (newArray) => { dispatch(updateArray(newArray)) }
     }
-}
+};
 
-const defaultState = [];
-
-const arrayReducer = (state = defaultState, action) => {
-    switch (action.type) {
-        case UPDATE_ARRAY:
-            return action.newArray;
-        default:
-            return state;
-    }
-}
-
-
-const store = createStore(arrayReducer);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Interface);
 
 
 export default class AppWrapper extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <App />
+                <Container />
             </Provider>
         );
     }
