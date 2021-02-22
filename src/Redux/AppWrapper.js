@@ -1,8 +1,3 @@
-/*
- * Note: I used more Redux features here than required by the complexity of this
- * app as practice for larger projects and a demonstration of my knowledge
-*/
-
 import React from 'react';
 import { Provider, connect } from 'react-redux';
 import store from './store';

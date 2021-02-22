@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import './Interface.css';
 import Menu from './Menu/Menu';
 import Graph from './Graph/Graph';
-import { randFromInterval, generateArray } from '../Utility/util';
+import { generateArray } from '../Utility/util';
 
 export default class Interface extends React.Component {
   constructor(props) {
