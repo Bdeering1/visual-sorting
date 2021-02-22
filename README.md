@@ -1,6 +1,6 @@
 # Visual Sorting App
   
-Visual demonstration on common sorting algorithms, designed using React and Redux.
+Visual demonstration of common sorting algorithms, designed using React and Redux.
   
 ### Features
   
