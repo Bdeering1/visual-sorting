@@ -10,15 +10,21 @@ export default class Interface extends React.Component {
     this.resetArray = this.resetArray.bind(this);
   }
 
+  componentDidMount() {
+    this.resetArray();
+    this.props.setColors(['#151515', '#EEEEEE', '#151515', '']);
+  }
+
   resetArray() {
-    this.props.updateArray(generateArray(10, 950));
+    this.props.updateArray(generateArray(10, 975, 180));
   }
 
   render() {
     return (
-      <div className="App">
-        <Menu resetArray={this.resetArray} />
-        <Graph array={this.props.array} resetArray={this.resetArray} />
+      <div className="App" style={{backgroundColor: this.props.colors[1]}}>
+        <h1 className="interface-title">Sorting Algorithms</h1>
+        <Graph array={this.props.array} colors={this.props.colors} />
+        <Menu resetArray={this.resetArray} colors={this.props.colors}/>
       </div>
     );
   }

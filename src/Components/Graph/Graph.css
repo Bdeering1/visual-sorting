@@ -1,19 +1,18 @@
 .bar-graph {
   width: 70%;
-  height: 80vh;
-  padding: 0 1px;
-  border-radius: 2px;
+  height: 70vh;
+  padding: 0 2px 2px 2px;
+  border-style: solid;
+  border-width: 8px;
+  border-radius: 4px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(2px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(2px, 1fr));
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: (minmax(3px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(3px, 1fr));
   grid-gap: 1px;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  background-color: #f0f0f0;
-}
-
-.array-bar {
-  background-color: turquoise;
 }

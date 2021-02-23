@@ -1,6 +1,6 @@
-export function generateArray(min, max) {
+export function generateArray(min, max, elements) {
     const array = [];
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < elements; i++) {
         array.push(randFromInterval(min, max));
     }
     return array;

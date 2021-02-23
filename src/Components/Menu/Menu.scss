@@ -1,14 +1,16 @@
 .menu-container {
-    width: 100vw;
+    width: 70%;
     height: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: #252535;
 }
 
 .menu-item {
-    width: 150px;
-    margin: 10px;
+    width: 14rem;
     padding: 5px;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 2px;
+    font-size: 1em;
 }

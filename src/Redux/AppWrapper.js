@@ -1,17 +1,21 @@
 import React from 'react';
 import { Provider, connect } from 'react-redux';
 import store from './store';
-import { updateArray } from './reducer';
+import { updateArray, setColors } from './reducer';
 import Interface from '../Components/Interface';
 
 
 const mapStateToProps = (state) => {
-    return { array: state.array }
+    return {
+        array: state.interface.array,
+        colors: state.interface.colors
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateArray: (newArray) => { dispatch(updateArray(newArray)) }
+        updateArray: (newArray) => { dispatch(updateArray(newArray)) },
+        setColors: (colorArray) => { dispatch(setColors(colorArray)) }
     }
 };
 

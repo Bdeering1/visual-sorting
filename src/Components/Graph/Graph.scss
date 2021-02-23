@@ -1,16 +1,19 @@
 .bar-graph {
     width: 70%;
-    height: 80vh;
-    padding: 0 1px;
-    border-radius: 2px;
+    height: 70vh;
+    padding: 0 2px 2px 2px;
+    border-style: solid;
+    border-width: 8px;
+    border-radius: 4px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(2px, 1fr));
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(3px, 1fr));
     grid-gap: 1px;
     align-items: end;
-    background-color: rgba(240, 240, 240, 1);
+    //justify-items: stretch;
 }
 
 .array-bar {
-    background-color: turquoise;
+
 }
