@@ -19,10 +19,11 @@ export default class Menu extends React.Component {
     render() {
         return (
             <div className="menu-container">
-                {this.state.buttons.map((button) => (
+                {this.state.buttons.map((button, idx) => (
                     <button
                         onClick={button.onClick}
                         className="menu-item"
+                        key={idx}
                         style={{
                             backgroundColor: this.props.colors[3],
                             borderColor: this.props.colors[0],
