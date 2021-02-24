@@ -9,7 +9,10 @@ export default class Graph extends React.Component {
   render() {
     return (
 
-      <div className="bar-graph" style={{backgroundColor: this.props.colors[1]}}>
+      <div
+        className="bar-graph"
+        style={{backgroundColor: this.props.colors[1],borderColor: this.props.colors[0]}}
+      >
         {
           this.props.array.map((value, index) => (
             <div
