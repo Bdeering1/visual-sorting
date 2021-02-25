@@ -6,6 +6,6 @@ export function generateArray(min, max, elements) {
     return array;
 }
 
-export function randFromInterval(min, max) {
+function randFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }

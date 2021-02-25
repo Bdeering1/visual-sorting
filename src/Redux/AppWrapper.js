@@ -1,21 +1,23 @@
 import React from 'react';
 import { Provider, connect } from 'react-redux';
 import store from './store';
-import { updateArray, setColors } from './reducer';
+import { setColors, updateArray, updateSelected } from './actions';
 import Interface from '../Components/Interface';
 
 
 const mapStateToProps = (state) => {
     return {
-        array: state.interface.array,
-        colors: state.interface.colors
+        colors: state.interface.colors,
+        array: state.sorting.array,
+        selected: state.sorting.selected
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        setColors: (colorObject) => { dispatch(setColors(colorObject)) },
         updateArray: (newArray) => { dispatch(updateArray(newArray)) },
-        setColors: (colorArray) => { dispatch(setColors(colorArray)) }
+        updateSelected: (newSelection) => { dispatch(updateSelected(newSelection)) }
     }
 };
 
