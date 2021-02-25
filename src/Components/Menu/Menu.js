@@ -25,9 +25,9 @@ export default class Menu extends React.Component {
                         className="menu-item"
                         key={idx}
                         style={{
-                            backgroundColor: this.props.colors[3],
-                            borderColor: this.props.colors[0],
-                            color: this.props.colors[0]
+                            backgroundColor: this.props.colors.light,
+                            borderColor: this.props.colors.text,
+                            color: this.props.colors.text
                         }}
                     >{button.text}</button>
                 ))}

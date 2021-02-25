@@ -13,15 +13,15 @@ export const updateArray = (newArray) => {
         newArray
     }
 }
-export const setColors = (colorArray) => {
+export const setColors = (colorObject) => {
     return {
         type: SET_COLORS,
-        colorArray
+        colorObject
     }
 }
 const defInterfaceState = {
     array: [],
-    colors: []
+    colors: {}
 }
 const interfaceReducer = (state = defInterfaceState, action) => {
     switch (action.type) {
@@ -33,7 +33,7 @@ const interfaceReducer = (state = defInterfaceState, action) => {
         case SET_COLORS:
             return {
                 array: state.array,
-                colors: action.colorArray
+                colors: action.colorObject
             }
         default:
             return state;

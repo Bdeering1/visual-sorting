@@ -12,7 +12,12 @@ export default class Interface extends React.Component {
 
   componentDidMount() {
     this.resetArray();
-    this.props.setColors(['#151515', '#222225', '#004BA4', '#E0E0E0']);
+    this.props.setColors({
+      light:'#E0E0E0',
+      dark:'#222225',
+      accent:'#004BA4', 
+      text:'#151515'
+    });
   }
 
   resetArray() {
@@ -21,7 +26,7 @@ export default class Interface extends React.Component {
 
   render() {
     return (
-      <div className="Interface" style={{backgroundColor: this.props.colors[1]}}>
+      <div className="Interface" style={{backgroundColor: this.props.colors.dark}}>
         <div className="interface-wrapper">
           <Graph array={this.props.array} colors={this.props.colors} />
           <Menu resetArray={this.resetArray} colors={this.props.colors}/>
