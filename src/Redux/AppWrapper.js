@@ -15,9 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setColors: (colorObject) => { dispatch(setColors(colorObject)) },
-        updateArray: (newArray) => { dispatch(updateArray(newArray)) },
-        updateSelected: (newSelection) => { dispatch(updateSelected(newSelection)) }
+        setColors: (colorObject) => { dispatch(setColors(colorObject)) }
     }
 };
 

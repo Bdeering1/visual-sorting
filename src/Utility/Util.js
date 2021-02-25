@@ -1,4 +1,4 @@
-export function generateArray(min, max, elements) {
+export const generateArray = (min, max, elements) => {
     const array = [];
     for (let i = 0; i < elements; i++) {
         array.push(randFromInterval(min, max));
@@ -6,6 +6,6 @@ export function generateArray(min, max, elements) {
     return array;
 }
 
-function randFromInterval(min, max) {
+const randFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }

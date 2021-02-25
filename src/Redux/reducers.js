@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_COLORS, UPDATE_ARRAY, UPDATE_SELECTED } from './actions';
+import { SET_COLORS, UPDATE_ARRAY, UPDATE_SELECTED, SORTING_STARTED, SORTING_STOPPED } from './actions';
 
 
 //Interface
@@ -20,19 +20,32 @@ const interfaceReducer = (state = defInterfaceState, action) => {
 //Sorting
 const defSortingState = {
     array: [],
-    selected: []
+    selected: [],
+    arraySize: 0,
+    sorting: false
 }
 const sortingReducer = (state = defSortingState, action) => {
     switch (action.type) {
         case UPDATE_ARRAY:
             return {
+                ...state,
                 array: action.newArray,
-                selected: state.selected,
-            };
+                arraySize: action.newSize
+            }
         case UPDATE_SELECTED:
             return {
-                array: state.array,
-                selected: action.items
+                ...state,
+                selected: action.newSelected
+            }
+        case SORTING_STARTED:
+            return {
+                ...state,
+                sorting: true
+            }
+        case SORTING_STOPPED:
+            return {
+                ...state,
+                sorting: false
             }
         default:
             return state;

@@ -1,6 +1,8 @@
 export const SET_COLORS = 'SET_COLORS';
 export const UPDATE_ARRAY = 'UPDATE_ARRAY';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
+export const SORTING_STARTED = 'SORTING_STARTED';
+export const SORTING_STOPPED = 'SORTING_STOPPED';
 
 
 export const setColors = (colorObject) => {
@@ -10,15 +12,27 @@ export const setColors = (colorObject) => {
     }
 }
 
-export const updateArray = (newArray) => {
+export const updateArray = (newArray, newSize) => {
     return {
         type: UPDATE_ARRAY,
-        newArray
+        newArray,
+        newSize
     }
 }
-export const updateSelected = (newSelection) => {
+export const updateSelected = (newSelected) => {
     return {
         type: UPDATE_SELECTED,
-        newSelection
+        newSelected
+    }
+}
+
+export const startedSorting = () => {
+    return {
+        type: SORTING_STARTED
+    }
+}
+export const stoppedSorting = () => {
+    return {
+        type: SORTING_STOPPED
     }
 }

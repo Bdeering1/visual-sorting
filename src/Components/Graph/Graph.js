@@ -10,15 +10,17 @@ export default class Graph extends React.Component {
     return (
 
       <div
-        className="bar-graph"
+        className="graph"
         style={{backgroundColor: this.props.colors.light,borderColor: this.props.colors.text}}
       >
         {
           this.props.array.map((value, idx) => (
             <div
-              className="array-bar"
               key={idx}
-              style={{height: `${value/10}%`, backgroundColor: this.props.colors.accent}}
+              style={{
+                height: `${value/10}%`,
+                backgroundColor: this.props.selected[idx] ? this.props.colors.selected : this.props.colors.accent
+              }}
             />
           ))
         }

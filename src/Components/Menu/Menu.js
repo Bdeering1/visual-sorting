@@ -1,6 +1,6 @@
 import React from 'react';
 import './Menu.css';
-import { resetArray } from '../../Utility/sortingMethods';
+import { resetArray, bubbleSort } from '../../Utility/sortingMethods';
 
 
 export default class Menu extends React.Component {
@@ -8,11 +8,11 @@ export default class Menu extends React.Component {
         super(props);
         this.state = {
             buttons: [
-                {text: 'Generate New Array', onClick: () => resetArray(this.props.updateArray, this.props.updateSelected)},
-                {text: 'Bubble Sort', onClick: () => resetArray(this.props.updateArray, this.props.updateSelected)},
-                {text: 'Algo 2', onClick: () => resetArray(this.props.updateArray, this.props.updateSelected)},
-                {text: 'Algo 3', onClick: () => resetArray(this.props.updateArray, this.props.updateSelected)},
-                {text: 'Algo 4', onClick: () => resetArray(this.props.updateArray, this.props.updateSelected)}
+                {text: 'Generate New Array', onClick: resetArray},
+                {text: 'Bubble Sort', onClick: bubbleSort},
+                {text: 'Algo 2', onClick: resetArray},
+                {text: 'Algo 3', onClick: resetArray},
+                {text: 'Algo 4', onClick: resetArray}
             ]
         }
     }
