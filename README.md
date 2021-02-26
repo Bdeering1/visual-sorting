@@ -1,7 +1,9 @@
 # Visual Sorting App
   
-Visual demonstration of common sorting algorithms, designed using React and Redux.  
-(created using create-react-app)  
+Visual demonstration of common sorting algorithms, designed using React and Redux (in progress).  
+Created using create-react-app.  
+
+For the most stable version, please visit my GitHub pages site (linked in the about section), or clone the gh-pages branch.
   
 ### Features
   
@@ -11,4 +13,4 @@ Visual demonstration of common sorting algorithms, designed using React and Redu
 -demonstrates understanding on javascript array methods such as mapping and spread operator  
   
   
-*note: this project is in progress, only bubble sort has been implemented so far, all other algorithm buttons randomizer the array for now*
+*only bubble sort has been implemented so far, all other algorithm buttons randomizer the array for now*. 
