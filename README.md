@@ -11,4 +11,4 @@ Visual demonstration of common sorting algorithms, designed using React and Redu
 -demonstrates understanding on javascript array methods such as mapping  
   
   
-*note: currently only the 'Generate New Array' button works*
+*note: this project is in progress, only bubble sort has been implemented so far, all other algorithm buttons randomizer the array for now*
