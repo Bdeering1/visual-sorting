@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AppWrapper from './Redux/AppWrapper';
+import AppWrapper from './State/AppWrapper';
 import reportWebVitals from './Tests/reportWebVitals';
 
 ReactDOM.render(

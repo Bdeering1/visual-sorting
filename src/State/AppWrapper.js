@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider, connect } from 'react-redux';
 import store from './store';
-import { setColors, updateArray, updateSelected } from './actions';
+import { setColors } from './actions';
 import Interface from '../Components/Interface';
 
 
@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     return {
         colors: state.interface.colors,
         array: state.sorting.array,
+        arraySize: state.sorting.arraySize,
         selected: state.sorting.selected
     }
 };

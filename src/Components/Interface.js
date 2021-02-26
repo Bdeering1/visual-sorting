@@ -1,7 +1,8 @@
 import React from 'react';
 import './Interface.css';
-import Menu from './Menu/Menu';
 import Graph from './Graph/Graph';
+import SideBar from './SideBar/SideBar';
+import Menu from './Menu/Menu';
 import { resetArray } from '../Utility/sortingMethods';
 
 
@@ -16,7 +17,7 @@ export default class Interface extends React.Component {
       light:'#E0E0E0',
       dark:'#222225',
       accent:'#004BA4',
-      selected: 'orange',
+      selected:'orange',
       text:'#151515'
     });
   }
@@ -24,10 +25,11 @@ export default class Interface extends React.Component {
   render() {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.dark}}>
-        <div className="interface-wrapper">
+        <div className="main-row">
           <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors} />
-          <Menu colors={this.props.colors}/>
+          <SideBar colors={this.props.colors} arraySize={this.props.arraySize}/>
         </div>
+          <Menu colors={this.props.colors}/>
       </div>
     );
   }

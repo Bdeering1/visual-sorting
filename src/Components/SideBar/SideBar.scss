@@ -1,0 +1,15 @@
+.sidebar {
+    height: 70vh;
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    height: 70%;
+    width: 0.5em;
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
+}
+
