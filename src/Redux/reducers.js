@@ -22,7 +22,7 @@ const defSortingState = {
     array: [],
     selected: [],
     arraySize: 0,
-    sorting: false
+    isSorting: false
 }
 const sortingReducer = (state = defSortingState, action) => {
     switch (action.type) {
@@ -40,12 +40,12 @@ const sortingReducer = (state = defSortingState, action) => {
         case SORTING_STARTED:
             return {
                 ...state,
-                sorting: true
+                isSorting: true
             }
         case SORTING_STOPPED:
             return {
                 ...state,
-                sorting: false
+                isSorting: false
             }
         default:
             return state;
