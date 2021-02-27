@@ -3,7 +3,7 @@
 Visual demonstration of common sorting algorithms, designed using React and Redux (in progress).  
 Created using create-react-app.  
 
-For the most stable version, please visit my GitHub pages site (linked in the about section), or clone the gh-pages branch.
+For the most stable version, please visit my GitHub pages site (linked in the about section), or clone the gh-pages branch (production build).  
   
 ### Features
   
