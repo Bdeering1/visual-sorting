@@ -3,7 +3,7 @@
 Visual demonstration of common sorting algorithms, designed using React and Redux (in progress).  
 Created using create-react-app.  
 
-For the most stable version, please visit my GitHub pages site (linked in the about section), or clone the gh-pages branch.
+For the most stable version, please visit my GitHub pages site (linked in the about section), or clone the gh-pages branch (production build).  
   
 ### Features
   
@@ -13,4 +13,4 @@ For the most stable version, please visit my GitHub pages site (linked in the ab
 -demonstrates understanding on javascript array methods such as mapping and spread operator  
   
   
-*only bubble sort has been implemented so far, all other algorithm buttons randomizer the array for now*. 
+*only bubble sort has been implemented so far, all other buttons randomize the array for now*. 
