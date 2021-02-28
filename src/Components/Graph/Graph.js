@@ -4,7 +4,7 @@ const Graph = (props) => {
     return (
       <div
         className="graph"
-        style={{backgroundColor: props.colors.light,borderColor: props.colors.text}}
+        style={{backgroundColor: props.colors.light, borderColor: props.colors.text}}
       >
         {
           props.array.map((value, idx) => (
@@ -17,6 +17,7 @@ const Graph = (props) => {
             />
           ))
         }
+        <p class="size-counter" style={{color: props.colors.dark}}>{props.arraySize}</p>
       </div>
     );
 }

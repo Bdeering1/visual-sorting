@@ -18,10 +18,11 @@ export default class SideBar extends React.Component {
       <div className="sidebar">
         <input
           type="range"
-          min="3" max="130"
+          min="3" max="60"
           orient="vertical"
           value={this.props.arraySize}
           className="slider"
+          id="range-slider"
           onChange={this.handleChange}
         />
       </div>

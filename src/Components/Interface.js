@@ -26,7 +26,7 @@ export default class Interface extends React.Component {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.dark}}>
         <div className="main-row">
-          <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors} />
+          <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors} arraySize={this.props.arraySize}/>
           <SideBar colors={this.props.colors} arraySize={this.props.arraySize}/>
         </div>
           <Menu colors={this.props.colors}/>

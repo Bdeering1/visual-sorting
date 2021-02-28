@@ -1,15 +1,16 @@
 .sidebar {
-    height: 70vh;
     grid-column: 3;
+    height: 70vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    //justify-content: center;
     align-items: center;
 }
 
 .slider {
     height: 70%;
     width: 0.5em;
+    margin-top: 100%;
     -webkit-appearance: slider-vertical;
     writing-mode: bt-lr;
 }
-

@@ -1,12 +1,25 @@
 .graph {
+    grid-column: 2;
     height: 70vh;
     padding: 0 2px 0px 2px;
     border-radius: 6px;
+    position: relative;
 
-    grid-column: 2;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(auto-fit, minmax(3px, 1fr));
-    grid-gap: 1px;
+    grid-gap: 2px;
     align-items: end;
+}
+
+.size-counter {
+    width: 100%;
+    top: 0;
+    margin: 1em 0;
+    padding-right: 1em;
+    position: absolute;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1em;
+    //background-color: orange;
 }

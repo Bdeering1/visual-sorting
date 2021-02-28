@@ -27,6 +27,6 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 15% 1fr 5% 10%;
-      grid-template-columns: 15% 1fr 5% 10%;
+  -ms-grid-columns: 15% 70% 5% 10%;
+      grid-template-columns: 15% 70% 5% 10%;
 }
