@@ -47,10 +47,10 @@ const callResetArray = () => {
         resetArray();
     }
 }
-const callUpdateSize = () => {
+const callUpdateSize = (newSize) => {
     return (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
-        updateSize();
+        updateSize(newSize);
     }
 }
 
@@ -66,6 +66,6 @@ const startBubbleSort = () => {
 
 export const actions = {
     resetArray: callResetArray,
-    updateArray: callUpdateSize,
+    updateSize: callUpdateSize,
     bubbleSort: startBubbleSort
 }
