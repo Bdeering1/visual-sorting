@@ -1,16 +1,32 @@
 .sidebar {
     grid-column: 3;
     height: 70vh;
+    position: relative;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
+    justify-content: center;
     align-items: center;
 }
 
 .slider {
-    height: 70%;
+    //height: 70%;
     width: 0.5em;
-    margin-top: 100%;
     -webkit-appearance: slider-vertical;
     writing-mode: bt-lr;
+}
+
+.counter {
+    display: none;
+    position: absolute;
+    transform: translateX(2em) translateY(+25%);
+    width: 1.75em;
+    height: 1.75em;
+    padding: 0.5em;
+    border-radius: 60%;
+}
+
+.slider:hover + .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

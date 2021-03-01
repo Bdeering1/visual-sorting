@@ -17,7 +17,6 @@ const Graph = (props) => {
             />
           ))
         }
-        <p class="size-counter" style={{color: props.colors.dark}}>{props.arraySize}</p>
       </div>
     );
 }

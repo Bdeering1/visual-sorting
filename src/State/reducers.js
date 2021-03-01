@@ -4,13 +4,20 @@ import { SET_COLORS, UPDATE_ARRAY, UPDATE_SELECTED, SORTING_STARTED, SORTING_STO
 
 //Interface
 const defInterfaceState = {
-    colors: {}
+    colors: {},
+    selected: []
 }
 const interfaceReducer = (state = defInterfaceState, action) => {
     switch (action.type) {
         case SET_COLORS:
             return {
+                ...state,
                 colors: action.colorObject
+            }
+        case UPDATE_SELECTED:
+            return {
+                ...state,
+                selected: action.newSelected
             }
         default:
             return state;
@@ -20,7 +27,6 @@ const interfaceReducer = (state = defInterfaceState, action) => {
 //Sorting
 const defSortingState = {
     array: [],
-    selected: [],
     arraySize: 0,
     isSorting: false
 }
@@ -31,11 +37,6 @@ const sortingReducer = (state = defSortingState, action) => {
                 ...state,
                 array: action.newArray,
                 arraySize: action.newSize
-            }
-        case UPDATE_SELECTED:
-            return {
-                ...state,
-                selected: action.newSelected
             }
         case SORTING_STARTED:
             return {
