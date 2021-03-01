@@ -9,7 +9,7 @@ export default class SideBar extends React.Component {
     this.state = {
       min: 3,
       max: 60,
-      heightRatio: 0.7
+      heightRatio: 0.5
     }
   }
 
@@ -24,12 +24,11 @@ export default class SideBar extends React.Component {
         <input
           type="range"
           min={this.state.min} max={this.state.max}
-          orient="vertical"
           value={this.props.arraySize}
           className="slider"
           id="range-slider"
           onChange={this.handleChange}
-          style={{height: this.state.heightRatio*100 + "%"}}
+          style={{width: this.state.heightRatio*100 + "vh"}}
         />
         <output
           htmlFor="range-slider"
@@ -37,7 +36,7 @@ export default class SideBar extends React.Component {
           style={{
             color: this.props.colors.text,
             backgroundColor: this.props.colors.light,
-            bottom: `calc(15% + ${outputPos * this.state.heightRatio}% - ${outputPos}*1em/100)`
+            bottom: `calc(10vh + ${outputPos * this.state.heightRatio}vh - ${outputPos}*1em/100)`
           }}
         >{this.props.arraySize}</output>
       </div>
