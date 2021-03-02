@@ -1,8 +1,7 @@
 $thumb-size: 20px;
 $track-size: 10px;
 $thumb-color: #004BA4;
-$slider-color: rgba(224,224,224, 0.4);
-$slider-hover-color: rgba(224,224,224, 1);
+$slider-color: rgba(224,224,224, 0.8);
 
 .sidebar {
     grid-column: 3;
@@ -14,46 +13,38 @@ $slider-hover-color: rgba(224,224,224, 1);
     align-items: center;
 }
 
-.slider {
-    width: 0.5em;
+.slider {   
     -webkit-appearance: none;
     transform: rotate(270deg);
-    background: transparent;
+    background: none;
+    opacity: 0.6;
 
     &:focus {
+        opacity: 1;
         outline: none;
+    }
+    &:hover {
+        opacity: 1;
     }
 
     &::-webkit-slider-runnable-track {
-        width: 100%;
         height: $track-size;
         border-radius: $track-size;
         cursor: pointer;
         background: $slider-color;
     }
     &::-moz-range-track {
-        width: 100%;
         height: $track-size;
         border-radius: $track-size;
         cursor: pointer;
         background: $slider-color;
     }
     &::-ms-track {
-        width: 100%;
         height: $track-size;
         border-radius: $track-size;
         cursor: pointer;
         background: $slider-color;
         color: transparent;
-    }
-    &:hover::-webkit-slider-runnable-track {
-        background: $slider-hover-color;
-    }
-    &:hover::-moz-range-track {
-        background: $slider-hover-color;
-    }
-    &:hover::-ms-track {
-        background: $slider-hover-color;
     }
 
     &::-webkit-slider-thumb {
@@ -86,14 +77,15 @@ $slider-hover-color: rgba(224,224,224, 1);
 .counter {
     display: none;
     position: absolute;
-    transform: translateX(2em) translateY(+25%);
+    transform: translateX(2.2em) translateY(+25%);
     width: 1.75em;
     height: 1.75em;
     padding: 0.5em;
     border-radius: 50%;
 }
 
-.slider:hover + .counter {
+.slider:hover + .counter,
+.slider:focus + .counter {
     display: flex;
     justify-content: center;
     align-items: center;
