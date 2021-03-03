@@ -12,9 +12,21 @@ export const swapInArray = (first, second, array) => {
     array[second] = temp;
     return [...array];
 }
-export const setTwo = (first, second, array, val) => {
+export const swapSortedInArray = (start, sorted, array) => {
+    for (let i = 0; i < sorted.length; i++) {
+        array[start + i] = sorted[i];
+    }
+    return [...array];
+}
+export const selectTwo = (first, second, array, val) => {
     array[first] = val;
     array[second] = val;
+    return [...array];
+}
+export const selectSorted = (start, length, array, val) => {
+    for (let i = 0; i < length; i++) {
+        array[start + i] = val;
+    }
     return [...array];
 }
 

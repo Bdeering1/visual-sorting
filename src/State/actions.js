@@ -1,4 +1,4 @@
-import { resetArray, updateSize, bubbleSort } from '../Utility/arrayMethods';
+import { resetArray, updateSize, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
 
 export const SET_COLORS = 'SET_COLORS';
 export const UPDATE_ARRAY = 'UPDATE_ARRAY';
@@ -64,8 +64,18 @@ const startBubbleSort = () => {
     }
 }
 
+const startMergeSort = () => {
+    return async (dispatch, getState) => {
+        if (getState().sorting.isSorting) return;
+        dispatch(startedSorting());
+        await mergeSortCaller();
+        dispatch(stoppedSorting());
+    }
+}
+
 export const actions = {
     resetArray: callResetArray,
     updateSize: callUpdateSize,
-    bubbleSort: startBubbleSort
+    bubbleSort: startBubbleSort,
+    mergeSort: startMergeSort
 }

@@ -7,8 +7,8 @@ export default class SideBar extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      min: 3,
-      max: 60,
+      min: 4,
+      max: 128,
       heightRatio: 0.8
     }
   }
