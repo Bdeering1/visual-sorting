@@ -3,7 +3,7 @@ import { updateArray, updateSelected } from '../State/actions';
 import { generateArray, swapInArray, swapSortedInArray, selectTwo, selectSorted, sleep } from './util';
 
 
-const DEFAULT_ARRAY_SIZE = 16;
+const DEFAULT_ARRAY_SIZE = 32;
 const getArraySize = () => {
     return store.getState().sorting.arraySize || DEFAULT_ARRAY_SIZE;
 }
@@ -55,7 +55,7 @@ const mergeSort = async (unsortedArray, currentSelection, currentArray, start) =
     const left = unsortedArray.slice(0, middle);
     const right = unsortedArray.slice(middle);
 
-    return await merge(
+    return await merge( /* extra arguments are used to update state array during sorting */
         await mergeSort(left, currentSelection, currentArray, start),
         await mergeSort(right, currentSelection, currentArray, start + middle),
         start,
@@ -71,7 +71,7 @@ const merge = async (left, right, start, middle, currentSelection, currentArray)
 
     while (leftIdx < left.length && rightIdx < right.length) {
         setSelected(selectTwo(start + leftIdx, middle + rightIdx, currentSelection, 1));
-        await sleep(5000 / currentSelection.length);
+        await sleep(10000 / (currentSelection.length * Math.log(currentSelection.length)));
         setSelected(selectTwo(start + leftIdx, middle + rightIdx, currentSelection, 0));
 
         if (left[leftIdx] < right[rightIdx]) {
@@ -87,7 +87,7 @@ const merge = async (left, right, start, middle, currentSelection, currentArray)
 
     setArray(swapSortedInArray(start, sorted, currentArray));
     setSelected(selectSorted(start, sorted.length, currentSelection, 1));
-    await sleep(5000 / currentSelection.length);
+    await sleep(10000 / currentSelection.length);
     setSelected(selectSorted(start, sorted.length, currentSelection, 0));
     return sorted;
   }

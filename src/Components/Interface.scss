@@ -17,8 +17,19 @@
     width: 100%;
     display: grid;
     grid-template:
-    " . . graph sidebar . "
-    " . . menu sidebar .";
-    grid-template-columns: 10% 5% 70% 5% 10%;
-    grid-template-rows: 70vh 10vh;
+        " . slider ."
+        " . graph . "
+        " . menu .";
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 10vh 70vh 10vh;
+}
+
+@media (min-width: 800px) {
+    .grid-wrapper {
+        grid-template:
+            " . sidepanel graph slider . "
+            " . sidepanel menu slider .";
+        grid-template-columns: 10% 5% 70% 5% 10%;
+        grid-template-rows: 70vh 10vh;
+    }
 }

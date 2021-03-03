@@ -8,7 +8,7 @@ export default class Menu extends React.Component {
         this.state = {
             btnCount: 3,
             buttons: [
-                {text: 'Generate New Array', onClick: this.props.actions.resetArray},
+                {text: 'New Array', onClick: this.props.actions.resetArray},
                 {text: 'Bubble Sort', onClick: this.props.actions.bubbleSort},
                 {text: 'Merge Sort', onClick: this.props.actions.mergeSort}
                 /*{text: 'Algo 3', onClick: this.props.actions.resetArray},

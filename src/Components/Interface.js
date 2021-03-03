@@ -1,7 +1,8 @@
 import React from 'react';
 import './Interface.css';
 import Graph from './Graph/Graph';
-import SideBar from './SideBar/SideBar';
+import Slider from './Slider/Slider';
+import SidePanel from './SidePanel/SidePanel';
 import Menu from './Menu/Menu';
 
 
@@ -26,7 +27,8 @@ export default class Interface extends React.Component {
       <div className="interface" style={{backgroundColor: this.props.colors.dark}}>
         <div className="grid-wrapper">
           <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors} arraySize={this.props.arraySize}/>
-          <SideBar updateSize={this.props.actions.updateSize} arraySize={this.props.arraySize} colors={this.props.colors}/>
+          <Slider updateSize={this.props.actions.updateSize} arraySize={this.props.arraySize} colors={this.props.colors}/>
+          <SidePanel />
           <Menu actions={this.props.actions} colors={this.props.colors}/>
         </div>
       </div>

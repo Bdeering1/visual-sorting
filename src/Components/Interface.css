@@ -27,9 +27,19 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  grid-template: " . . graph sidebar . " " . . menu sidebar .";
-  -ms-grid-columns: 10% 5% 70% 5% 10%;
-      grid-template-columns: 10% 5% 70% 5% 10%;
-  -ms-grid-rows: 70vh 10vh;
-      grid-template-rows: 70vh 10vh;
+  grid-template: " . slider ." " . graph . " " . menu .";
+  -ms-grid-columns: 5% 90% 5%;
+      grid-template-columns: 5% 90% 5%;
+  -ms-grid-rows: 10vh 70vh 10vh;
+      grid-template-rows: 10vh 70vh 10vh;
+}
+
+@media (min-width: 800px) {
+  .grid-wrapper {
+    grid-template: " . sidepanel graph slider . " " . sidepanel menu slider .";
+    -ms-grid-columns: 10% 5% 70% 5% 10%;
+        grid-template-columns: 10% 5% 70% 5% 10%;
+    -ms-grid-rows: 70vh 10vh;
+        grid-template-rows: 70vh 10vh;
+  }
 }
