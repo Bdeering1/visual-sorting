@@ -23,10 +23,13 @@
   text-align: center;
 }
 
-.main-row {
+.grid-wrapper {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 15% 70% 5% 10%;
-      grid-template-columns: 15% 70% 5% 10%;
+  grid-template: " . . graph sidebar . " " . . menu sidebar .";
+  -ms-grid-columns: 10% 5% 70% 5% 10%;
+      grid-template-columns: 10% 5% 70% 5% 10%;
+  -ms-grid-rows: 70vh 10vh;
+      grid-template-rows: 70vh 10vh;
 }

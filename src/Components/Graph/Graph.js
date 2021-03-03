@@ -4,7 +4,7 @@ const Graph = (props) => {
     return (
       <div
         className="graph"
-        style={{backgroundColor: props.colors.light, borderColor: props.colors.text}}
+        //style={{backgroundColor: props.colors.light, borderColor: props.colors.text}}
       >
         {
           props.array.map((value, idx) => (

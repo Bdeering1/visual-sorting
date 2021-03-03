@@ -16,7 +16,7 @@ export default class Interface extends React.Component {
       light:'#E0E0E0',
       dark:'#222225',
       accent:'#004BA4',
-      selected:'orange',
+      selected: '#D65265',
       text:'#151515'
     });
   }
@@ -24,11 +24,11 @@ export default class Interface extends React.Component {
   render() {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.dark}}>
-        <div className="main-row">
-          <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors}/>
+        <div className="grid-wrapper">
+          <Graph array={this.props.array} selected={this.props.selected} colors={this.props.colors} arraySize={this.props.arraySize}/>
           <SideBar updateSize={this.props.actions.updateSize} arraySize={this.props.arraySize} colors={this.props.colors}/>
-        </div>
           <Menu actions={this.props.actions} colors={this.props.colors}/>
+        </div>
       </div>
     );
   }

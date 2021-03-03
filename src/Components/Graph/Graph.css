@@ -1,10 +1,8 @@
 .graph {
-  -ms-grid-column: 2;
-  grid-column: 2;
-  height: 70vh;
-  padding: 0 2px 0px 2px;
-  border-radius: 6px;
+  grid-area: graph;
+  padding: 0 2px;
   position: relative;
+  border-radius: 40px 40px 0 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr;
@@ -15,4 +13,5 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
+  background: #E0E0E0;
 }

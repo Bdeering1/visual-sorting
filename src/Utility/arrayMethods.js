@@ -31,10 +31,9 @@ export const bubbleSort = async () => {
             await sleep(10000 / (arraySize*arraySize));
             if (currentArray[j] > currentArray[j + 1]) {
                 setArray(swapInArray(j, j + 1, currentArray));
+                await sleep(10000 / (arraySize*arraySize));
             }
-            await sleep(10000 / (arraySize*arraySize));
-            setTwo(j, j + 1, currentSelection, 0);
+            setSelected(setTwo(j, j + 1, currentSelection, 0));
         }
     }
-    setSelected([...currentSelection]);
 }

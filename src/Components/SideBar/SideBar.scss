@@ -1,11 +1,10 @@
-$thumb-size: 20px;
-$track-size: 10px;
+$thumb-size: 28px;
+$track-size: 14px;
 $thumb-color: #004BA4;
-$slider-color: rgba(224,224,224, 0.8);
+$slider-color: rgba(224,224,224, 0.9);
 
 .sidebar {
-    grid-column: 3;
-    height: 70vh;
+    grid-area: sidebar;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -13,11 +12,12 @@ $slider-color: rgba(224,224,224, 0.8);
     align-items: center;
 }
 
-.slider {   
+.slider {
     -webkit-appearance: none;
     transform: rotate(270deg);
     background: none;
-    opacity: 0.6;
+    opacity: 0.8;
+    transition: opacity 200ms;
 
     &:focus {
         opacity: 1;
@@ -77,15 +77,17 @@ $slider-color: rgba(224,224,224, 0.8);
 .counter {
     display: none;
     position: absolute;
-    transform: translateX(2.2em) translateY(+25%);
-    width: 1.75em;
-    height: 1.75em;
-    padding: 0.5em;
+    transform: translateX(3em) translateY(+4px);
+    width: $thumb-size + 8px;;
+    height: $thumb-size + 8px;
+    //padding: 1.25em;
     border-radius: 50%;
 }
 
 .slider:hover + .counter,
-.slider:focus + .counter {
+.slider:focus + .counter,
+.slider:focus + .count,
+.slider:focus + .count {
     display: flex;
     justify-content: center;
     align-items: center;

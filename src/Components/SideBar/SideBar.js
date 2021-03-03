@@ -9,7 +9,7 @@ export default class SideBar extends React.Component {
     this.state = {
       min: 3,
       max: 60,
-      heightRatio: 0.5
+      heightRatio: 0.8
     }
   }
 
@@ -36,7 +36,7 @@ export default class SideBar extends React.Component {
           style={{
             color: this.props.colors.text,
             backgroundColor: this.props.colors.light,
-            bottom: `calc(10vh + ${outputPos * this.state.heightRatio}vh - ${outputPos}*1em/100)`
+            bottom: `calc(${outputPos * this.state.heightRatio}vh - ${outputPos}*28px/100)`
           }}
         >{this.props.arraySize}</output>
       </div>

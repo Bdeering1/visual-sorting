@@ -6,12 +6,13 @@ export default class Menu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            btnCount: 2,
             buttons: [
                 {text: 'Generate New Array', onClick: this.props.actions.resetArray},
-                {text: 'Bubble Sort', onClick: this.props.actions.bubbleSort},
-                {text: 'Algo 2', onClick: this.props.actions.resetArray},
+                {text: 'Bubble Sort', onClick: this.props.actions.bubbleSort}
+                /* {text: 'Algo 2', onClick: this.props.actions.resetArray},
                 {text: 'Algo 3', onClick: this.props.actions.resetArray},
-                {text: 'Algo 4', onClick: this.props.actions.resetArray}
+                {text: 'Algo 4', onClick: this.props.actions.resetArray} */
             ]
         }
     }
@@ -25,9 +26,10 @@ export default class Menu extends React.Component {
                         className="menu-item"
                         key={idx}
                         style={{
-                            backgroundColor: this.props.colors.light,
+                            backgroundColor: this.props.colors.accent,
                             borderColor: this.props.colors.text,
-                            color: this.props.colors.text
+                            color: this.props.colors.light,
+                            width: 90 / this.state.btnCount + "%"
                         }}
                     >{button.text}</button>
                 ))}

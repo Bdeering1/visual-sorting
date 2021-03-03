@@ -10,7 +10,7 @@ export const swapInArray = (first, second, array) => {
     let temp = array[first];
     array[first] = array[second];
     array[second] = temp;
-    return array;
+    return [...array];
 }
 export const setTwo = (first, second, array, val) => {
     array[first] = val;

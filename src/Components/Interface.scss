@@ -13,8 +13,12 @@
     text-align: center;
 }
 
-.main-row {
+.grid-wrapper {
     width: 100%;
     display: grid;
-    grid-template-columns: 15% 70% 5% 10%;
+    grid-template:
+    " . . graph sidebar . "
+    " . . menu sidebar .";
+    grid-template-columns: 10% 5% 70% 5% 10%;
+    grid-template-rows: 70vh 10vh;
 }
