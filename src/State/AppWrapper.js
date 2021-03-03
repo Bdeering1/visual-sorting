@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider, connect } from 'react-redux';
 import store from './store';
-import { setColors, actions } from './actions';
+import { setColors, thunkActions } from './actions';
 import Interface from '../Components/Interface';
 import { bindActionCreators } from 'redux';
 
@@ -11,14 +11,16 @@ const mapStateToProps = (state) => {
         colors: state.interface.colors,
         selected: state.interface.selected,
         array: state.sorting.array,
-        arraySize: state.sorting.arraySize
+        arraySize: state.sorting.arraySize,
+        minSize: state.sorting.minSize,
+        maxSize: state.sorting.maxSize
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setColors: (colorObject) => { dispatch(setColors(colorObject)) },
-        actions: bindActionCreators(actions, dispatch)
+        actions: bindActionCreators(thunkActions, dispatch)
     }
 };
 

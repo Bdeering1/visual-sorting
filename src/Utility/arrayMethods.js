@@ -21,6 +21,10 @@ export const updateSize = (newSize) => {
     setSelected(generateArray(0, 0, newSize));
 }
 
+export const sizeTooLarge = () => {
+    return (store.getState().sorting.maxSize < store.getState().sorting.arraySize);
+}
+
 export const bubbleSort = async () => {
     let arraySize = getArraySize();
     let currentArray = [...store.getState().sorting.array]; /* spread operator prevents mutation */

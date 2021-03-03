@@ -1,7 +1,8 @@
-import { resetArray, updateSize, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
+import { resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
 
 export const SET_COLORS = 'SET_COLORS';
 export const UPDATE_ARRAY = 'UPDATE_ARRAY';
+export const UPDATE_MAX_SIZE = 'UPDATE_MAX_SIZE';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
 export const SORTING_STARTED = 'SORTING_STARTED';
 export const SORTING_STOPPED = 'SORTING_STOPPED';
@@ -29,6 +30,12 @@ export const updateArray = (newArray, newSize) => {
         newSize
     }
 }
+const updateMax = (newMax) => {
+    return {
+        type: UPDATE_MAX_SIZE,
+        newMax
+    }
+}
 const startedSorting = () => {
     return {
         type: SORTING_STARTED
@@ -40,7 +47,7 @@ const stoppedSorting = () => {
     }
 }
 
-//Composite Actions
+//Redux Thunk Actions
 const callResetArray = () => {
     return (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
@@ -53,8 +60,13 @@ const callUpdateSize = (newSize) => {
         updateSize(newSize);
     }
 }
-
-//Asynchronous Actions
+const updateMaxSize = (newMax) => {
+    return (dispatch) => {
+        dispatch(updateMax(newMax));
+        if (sizeTooLarge())
+            updateSize(newMax);
+    }
+}
 const startBubbleSort = () => {
     return async (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
@@ -63,7 +75,6 @@ const startBubbleSort = () => {
         dispatch(stoppedSorting());
     }
 }
-
 const startMergeSort = () => {
     return async (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
@@ -73,9 +84,10 @@ const startMergeSort = () => {
     }
 }
 
-export const actions = {
+export const thunkActions = {
     resetArray: callResetArray,
     updateSize: callUpdateSize,
+    updateMax: updateMaxSize,
     bubbleSort: startBubbleSort,
     mergeSort: startMergeSort
 }

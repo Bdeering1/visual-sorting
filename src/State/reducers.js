@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_COLORS, UPDATE_ARRAY, UPDATE_SELECTED, SORTING_STARTED, SORTING_STOPPED } from './actions';
+import { SET_COLORS, UPDATE_ARRAY, UPDATE_MAX_SIZE, UPDATE_SELECTED, SORTING_STARTED, SORTING_STOPPED } from './actions';
 
 
 //Interface
@@ -28,6 +28,8 @@ const interfaceReducer = (state = defInterfaceState, action) => {
 const defSortingState = {
     array: [],
     arraySize: 0,
+    minSize: 4,
+    maxSize: 48,
     isSorting: false
 }
 const sortingReducer = (state = defSortingState, action) => {
@@ -37,6 +39,11 @@ const sortingReducer = (state = defSortingState, action) => {
                 ...state,
                 array: action.newArray,
                 arraySize: action.newSize
+            }
+        case UPDATE_MAX_SIZE:
+            return {
+                ...state,
+                maxSize: action.newMax
             }
         case SORTING_STARTED:
             return {

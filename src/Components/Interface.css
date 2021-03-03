@@ -30,11 +30,11 @@
   grid-template: " . slider ." " . graph . " " . menu .";
   -ms-grid-columns: 5% 90% 5%;
       grid-template-columns: 5% 90% 5%;
-  -ms-grid-rows: 10vh 70vh 10vh;
-      grid-template-rows: 10vh 70vh 10vh;
+  -ms-grid-rows: 10vh 70vh 12.5vh;
+      grid-template-rows: 10vh 70vh 12.5vh;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 850px) {
   .grid-wrapper {
     grid-template: " . sidepanel graph slider . " " . sidepanel menu slider .";
     -ms-grid-columns: 10% 5% 70% 5% 10%;
