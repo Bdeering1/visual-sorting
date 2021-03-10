@@ -11,3 +11,4 @@ For the most stable version, please visit my GitHub pages site (linked in the ab
 -utilizes composed reducers to improve modularity and scalability, also employs redux-thunk middleware to allow for the dispatch of asynchronous actions  
 -demonstrates object-oriented programming concepts such as encapsulation and abstraction  
 -demonstrates understanding on javascript array methods such as mapping and spread operator  
+-fully responsive and cross browser compatible!
