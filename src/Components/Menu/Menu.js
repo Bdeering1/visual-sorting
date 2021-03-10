@@ -19,7 +19,12 @@ export default class Menu extends React.Component {
 
     render() {
         return (
-            <div className="menu-container">
+            <div
+                className="menu-container"
+                style={{
+                    background: this.props.initialized ? 'rgba(216,221,224, 0.9)' : this.props.colors.light
+                }}
+            >
                 {this.state.buttons.map((button, idx) => (
                     <button
                         onClick={button.onClick}
@@ -29,7 +34,8 @@ export default class Menu extends React.Component {
                             backgroundColor: this.props.colors.accent,
                             borderColor: this.props.colors.text,
                             color: this.props.colors.light,
-                            width: 90 / this.state.btnCount + "%"
+                            width: 90 / this.state.btnCount + '%',
+                            opacity: this.props.initialized ? 1 : 0
                         }}
                     >{button.text}</button>
                 ))}

@@ -12,8 +12,8 @@ const Graph = (props) => {
           props.array.map((value, idx) => (
             <div
               key={idx}
-              className={props.transition == 0 ? "array-bar"
-                          : props.transition == 1 ? "fast-bar-transition"
+              className={props.transition ? "fast-bar-transition"
+                          : props.initialized == 2 ? "array-bar"
                           : "slow-bar-transition"}
               style={{
                 height: `${value/10}%`,

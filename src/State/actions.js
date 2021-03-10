@@ -2,8 +2,9 @@ import { initArray, resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortC
 
 export const SET_COLORS = 'SET_COLORS';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
-export const SLOW_TRANSITION  = 'SLOW_TRANSITION';
-export const FAST_TRANSITION  = 'FAST_TRANSITION';
+export const START_INIT  = 'START_INIT';
+export const END_INIT  = 'END_INIT';
+export const START_TRANSITION  = 'START_TRANSITION';
 export const END_TRANSITION  = 'END_TRANSITION';
 export const UPDATE_ARRAY = 'UPDATE_ARRAY';
 export const UPDATE_MAX_SIZE = 'UPDATE_MAX_SIZE';
@@ -24,14 +25,19 @@ export const updateSelected = (newSelected) => {
         newSelected
     }
 }
-const slowTransition = () => {
+const startInit = () => {
     return {
-        type: SLOW_TRANSITION
+        type: START_INIT
     }
 }
-const fastTransition = () => {
+const endInit = () => {
     return {
-        type: FAST_TRANSITION
+        type: END_INIT
+    }
+}
+const startTransition = () => {
+    return {
+        type: START_TRANSITION
     }
 }
 const endTransition = () => {
@@ -66,19 +72,19 @@ const stoppedSorting = () => {
 }
 
 //Redux Thunk Actions
-const callInitArray = () => {
+const initSequence = () => {
     return async (dispatch) => {
         await initArray();
-        dispatch(slowTransition());
+        dispatch(startInit());
         await resetArray(600);
-        dispatch(endTransition());
+        dispatch(endInit());
     }
 }
 const callResetArray = () => {
     return async (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
         dispatch(startedSorting());
-        dispatch(fastTransition());
+        dispatch(startTransition());
         await resetArray(200);
         dispatch(stoppedSorting());
         dispatch(endTransition());
@@ -115,7 +121,7 @@ const startMergeSort = () => {
 }
 
 export const thunkActions = {
-    initArray: callInitArray,
+    init: initSequence,
     resetArray: callResetArray,
     updateSize: callUpdateSize,
     updateMax: updateMaxSize,

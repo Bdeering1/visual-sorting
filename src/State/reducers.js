@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import { SET_COLORS, UPDATE_SELECTED, SLOW_TRANSITION, FAST_TRANSITION, END_TRANSITION, UPDATE_ARRAY, UPDATE_MAX_SIZE, SORTING_STARTED, SORTING_STOPPED } from './actions';
+import { SET_COLORS, UPDATE_SELECTED, START_INIT, END_INIT, START_TRANSITION, END_TRANSITION, UPDATE_ARRAY, UPDATE_MAX_SIZE, SORTING_STARTED, SORTING_STOPPED } from './actions';
 
 
 //Interface
 const defInterfaceState = {
     colors: {},
     selected: [],
-    transition: 0
+    transition: false,
+    initialized: 0
 }
 const interfaceReducer = (state = defInterfaceState, action) => {
     switch (action.type) {
@@ -20,15 +21,20 @@ const interfaceReducer = (state = defInterfaceState, action) => {
                 ...state,
                 selected: action.newSelected
             }
-        case FAST_TRANSITION:
+        case START_INIT:
             return {
                 ...state,
-                transition: 1
+                initialized: 1
             }
-        case SLOW_TRANSITION:
+        case END_INIT:
+                return {
+                    ...state,
+                    initialized: 2
+                }
+        case START_TRANSITION:
             return {
                 ...state,
-                transition: 2
+                transition: true
             }
         case END_TRANSITION:
             return {
@@ -76,7 +82,6 @@ const sortingReducer = (state = defSortingState, action) => {
     }
 }
 
-/* a composed reducer isn't required for the complexity of this project, but I wanted to include one to get practice and demonstrate my Redux knowledge */
 const rootReducer = combineReducers({
     interface: interfaceReducer,
     sorting: sortingReducer

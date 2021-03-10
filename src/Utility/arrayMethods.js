@@ -12,6 +12,7 @@ const setSelected = (newSelected) => store.dispatch(updateSelected(newSelected))
 
 
 export const initArray = async () => {
+    await sleep(2500); /* waiting for title to animate */
     setArray(generateArray(0, 0, getArraySize()));
     setSelected(generateArray(0, 0, getArraySize()));
     await sleep(200);

@@ -10,13 +10,13 @@ $slider-color: rgba(216,221,224,0.9);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: opacity 600ms;
 }
 
 .range-slider {
     -webkit-appearance: none;
     background: none;
     opacity: 0.8;
-    transition: opacity 200ms;
 
     &:focus {
         opacity: 1;

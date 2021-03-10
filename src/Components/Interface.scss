@@ -19,9 +19,28 @@
     grid-template:
         " . slider ."
         " . graph . "
-        " . menu .";
+        " . menu . ";
     grid-template-columns: 5% 90% 5%;
     grid-template-rows: 10vh 70vh 12.5vh;
+}
+
+header {
+    grid-area: graph;
+    align-self: center;
+    z-index: 1;
+    opacity: 0;
+    animation: show-title 2500ms ease-in-out;
+    animation-fill-mode: forwards;
+    .title {
+        margin: 0;
+        font-family: Vegan Style, Brush Script MT, Arial, sans-serif;
+        font-size: 3em;
+    }
+    .sub-title {
+        margin: 0;
+        font-family: Poiret One;
+        letter-spacing: 1px;
+    }
 }
 
 @media (min-width: 850px) {
@@ -31,5 +50,24 @@
             " . sidepanel menu slider .";
         grid-template-columns: 10% 5% 70% 5% 10%;
         grid-template-rows: 70vh 10vh;
+    }
+    header .title {
+        font-size: 5em;
+        letter-spacing: 1px;
+    }
+}
+
+@keyframes show-title {
+    0%  {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100%  {
+        opacity: 0;
     }
 }

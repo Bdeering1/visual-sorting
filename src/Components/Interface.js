@@ -4,6 +4,7 @@ import Graph from './Graph/Graph';
 import Slider from './Slider/Slider';
 import SidePanel from './SidePanel/SidePanel';
 import Menu from './Menu/Menu';
+import '../fonts.css';
 
 
 export default class Interface extends React.Component {
@@ -16,10 +17,10 @@ export default class Interface extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.initArray();
+    this.props.actions.init();
     this.props.setColors({
       light:'#F3F7FB',
-      backdrop:'#C2C5CD',
+      backdrop:'#222225', //C2C5CD
       accent:'#004BA4',
       selected: '#D65265',
       text:'#151515'
@@ -31,20 +32,34 @@ export default class Interface extends React.Component {
   }
 
   updateQuery() {
-    this.setState({
-      query: window.matchMedia("(min-width: 850px)").matches
-    });
-    this.props.actions.updateMax(this.state.query ? 128 : 48);
+    let query = window.matchMedia("(min-width: 850px)").matches
+    this.setState({ query });
+    this.props.actions.updateMax(query ? 128 : 48);
   }
 
   render() {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.backdrop}}>
         <div className="grid-wrapper">
+        <header>
+          <h1
+            className="title"
+            style={{
+              color: this.props.colors.accent
+            }}
+          >Visual Sorting App</h1>
+          <h2
+            className="sub-title"
+            style={{
+              color: this.props.colors.accent
+            }}
+          >By Bryn Deering</h2>
+        </header>
           <Graph
             array={this.props.array}
             selected={this.props.selected}
             colors={this.props.colors}
+            initialized={this.props.initialized}
             transition={this.props.transition}
             arraySize={this.props.arraySize}
           />
@@ -52,12 +67,17 @@ export default class Interface extends React.Component {
             updateSize={this.props.actions.updateSize}
             arraySize={this.props.arraySize}
             colors={this.props.colors}
+            initialized={this.props.initialized}
             query={this.state.query}
             min={this.props.minSize}
             max={this.props.maxSize}
           />
           <SidePanel />
-          <Menu actions={this.props.actions} colors={this.props.colors}/>
+          <Menu
+          actions={this.props.actions}
+          colors={this.props.colors}
+          initialized={this.props.initialized}
+          />
         </div>
       </div>
     );

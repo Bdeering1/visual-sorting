@@ -11,8 +11,10 @@ const mapStateToProps = (state) => {
         colors: state.interface.colors,
         selected: state.interface.selected,
         transition: state.interface.transition,
+        initialized: state.interface.initialized,
         array: state.sorting.array,
         arraySize: state.sorting.arraySize,
+        isSorting: state.sorting.isSorting,
         minSize: state.sorting.minSize,
         maxSize: state.sorting.maxSize
     }
