@@ -37,21 +37,21 @@
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(224, 224, 224, 0.9);
+  background: rgba(216, 221, 224, 0.9);
 }
 
 .range-slider::-moz-range-track {
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(224, 224, 224, 0.9);
+  background: rgba(216, 221, 224, 0.9);
 }
 
 .range-slider::-ms-track {
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(224, 224, 224, 0.9);
+  background: rgba(216, 221, 224, 0.9);
   color: transparent;
 }
 

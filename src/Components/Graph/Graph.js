@@ -4,6 +4,9 @@ const Graph = (props) => {
     return (
       <div
         className="graph"
+        style={{
+          backgroundColor: props.colors.light
+        }}
       >
         {
           props.array.map((value, idx) => (

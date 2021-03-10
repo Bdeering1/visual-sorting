@@ -18,8 +18,8 @@ export default class Interface extends React.Component {
   componentDidMount() {
     this.props.actions.initArray();
     this.props.setColors({
-      light:'#E0E0E0',
-      dark:'#222225',
+      light:'#F3F7FB',
+      backdrop:'#C2C5CD',
       accent:'#004BA4',
       selected: '#D65265',
       text:'#151515'
@@ -39,7 +39,7 @@ export default class Interface extends React.Component {
 
   render() {
     return (
-      <div className="interface" style={{backgroundColor: this.props.colors.dark}}>
+      <div className="interface" style={{backgroundColor: this.props.colors.backdrop}}>
         <div className="grid-wrapper">
           <Graph
             array={this.props.array}
