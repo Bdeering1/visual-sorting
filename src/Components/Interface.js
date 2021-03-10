@@ -16,7 +16,7 @@ export default class Interface extends React.Component {
   }
 
   componentDidMount() {
-    this.props.actions.resetArray();
+    this.props.actions.initArray();
     this.props.setColors({
       light:'#E0E0E0',
       dark:'#222225',
@@ -45,6 +45,7 @@ export default class Interface extends React.Component {
             array={this.props.array}
             selected={this.props.selected}
             colors={this.props.colors}
+            transition={this.props.transition}
             arraySize={this.props.arraySize}
           />
           <Slider

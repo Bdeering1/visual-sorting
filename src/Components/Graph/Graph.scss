@@ -13,6 +13,13 @@
     background: #E0E0E0;
 }
 
+.fast-bar-transition {
+    transition: height 200ms;
+}
+.slow-bar-transition {
+    transition: height 600ms;
+}
+
 @media (min-width: 850px) {
     .graph {
         padding: 0 2px;

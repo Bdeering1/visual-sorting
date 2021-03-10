@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import { SET_COLORS, UPDATE_ARRAY, UPDATE_MAX_SIZE, UPDATE_SELECTED, SORTING_STARTED, SORTING_STOPPED } from './actions';
+import { SET_COLORS, UPDATE_SELECTED, SLOW_TRANSITION, FAST_TRANSITION, END_TRANSITION, UPDATE_ARRAY, UPDATE_MAX_SIZE, SORTING_STARTED, SORTING_STOPPED } from './actions';
 
 
 //Interface
 const defInterfaceState = {
     colors: {},
-    selected: []
+    selected: [],
+    transition: 0
 }
 const interfaceReducer = (state = defInterfaceState, action) => {
     switch (action.type) {
@@ -18,6 +19,21 @@ const interfaceReducer = (state = defInterfaceState, action) => {
             return {
                 ...state,
                 selected: action.newSelected
+            }
+        case FAST_TRANSITION:
+            return {
+                ...state,
+                transition: 1
+            }
+        case SLOW_TRANSITION:
+            return {
+                ...state,
+                transition: 2
+            }
+        case END_TRANSITION:
+            return {
+                ...state,
+                transition: 0
             }
         default:
             return state;

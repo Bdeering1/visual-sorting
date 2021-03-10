@@ -17,8 +17,10 @@
   padding: 2.5vh 0;
   border-style: none;
   border-radius: 4px;
-  -webkit-transition: opacity 200ms;
-  transition: opacity 200ms;
+  -webkit-transition: -webkit-box-shadow 200ms;
+  transition: -webkit-box-shadow 200ms;
+  transition: box-shadow 200ms;
+  transition: box-shadow 200ms, -webkit-box-shadow 200ms;
 }
 
 .menu-item:focus {

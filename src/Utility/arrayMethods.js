@@ -11,9 +11,15 @@ const setArray = (newArray) => store.dispatch(updateArray(newArray, newArray.len
 const setSelected = (newSelected) => store.dispatch(updateSelected(newSelected));
 
 
-export const resetArray = () => {
-    setArray(generateArray(10, 900, getArraySize()));
+export const initArray = async () => {
+    setArray(generateArray(0, 0, getArraySize()));
     setSelected(generateArray(0, 0, getArraySize()));
+    await sleep(200);
+}
+
+export const resetArray = async (animTime) => {
+    setArray(generateArray(10, 900, getArraySize()));
+    await sleep(animTime); /* waiting for animation to finish */
 }
 
 export const updateSize = (newSize) => {

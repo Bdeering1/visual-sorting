@@ -16,6 +16,16 @@
   background: #E0E0E0;
 }
 
+.fast-bar-transition {
+  -webkit-transition: height 200ms;
+  transition: height 200ms;
+}
+
+.slow-bar-transition {
+  -webkit-transition: height 600ms;
+  transition: height 600ms;
+}
+
 @media (min-width: 850px) {
   .graph {
     padding: 0 2px;

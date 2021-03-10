@@ -1,9 +1,12 @@
-import { resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
+import { initArray, resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
 
 export const SET_COLORS = 'SET_COLORS';
+export const UPDATE_SELECTED = 'UPDATE_SELECTED';
+export const SLOW_TRANSITION  = 'SLOW_TRANSITION';
+export const FAST_TRANSITION  = 'FAST_TRANSITION';
+export const END_TRANSITION  = 'END_TRANSITION';
 export const UPDATE_ARRAY = 'UPDATE_ARRAY';
 export const UPDATE_MAX_SIZE = 'UPDATE_MAX_SIZE';
-export const UPDATE_SELECTED = 'UPDATE_SELECTED';
 export const SORTING_STARTED = 'SORTING_STARTED';
 export const SORTING_STOPPED = 'SORTING_STOPPED';
 
@@ -19,6 +22,21 @@ export const updateSelected = (newSelected) => {
     return {
         type: UPDATE_SELECTED,
         newSelected
+    }
+}
+const slowTransition = () => {
+    return {
+        type: SLOW_TRANSITION
+    }
+}
+const fastTransition = () => {
+    return {
+        type: FAST_TRANSITION
+    }
+}
+const endTransition = () => {
+    return {
+        type: END_TRANSITION
     }
 }
 
@@ -48,10 +66,22 @@ const stoppedSorting = () => {
 }
 
 //Redux Thunk Actions
+const callInitArray = () => {
+    return async (dispatch) => {
+        await initArray();
+        dispatch(slowTransition());
+        await resetArray(600);
+        dispatch(endTransition());
+    }
+}
 const callResetArray = () => {
-    return (dispatch, getState) => {
+    return async (dispatch, getState) => {
         if (getState().sorting.isSorting) return;
-        resetArray();
+        dispatch(startedSorting());
+        dispatch(fastTransition());
+        await resetArray(200);
+        dispatch(stoppedSorting());
+        dispatch(endTransition());
     }
 }
 const callUpdateSize = (newSize) => {
@@ -85,6 +115,7 @@ const startMergeSort = () => {
 }
 
 export const thunkActions = {
+    initArray: callInitArray,
     resetArray: callResetArray,
     updateSize: callUpdateSize,
     updateMax: updateMaxSize,

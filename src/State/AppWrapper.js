@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
     return {
         colors: state.interface.colors,
         selected: state.interface.selected,
+        transition: state.interface.transition,
         array: state.sorting.array,
         arraySize: state.sorting.arraySize,
         minSize: state.sorting.minSize,
