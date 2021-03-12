@@ -20,7 +20,7 @@ export default class Interface extends React.Component {
     this.props.actions.init();
     this.props.setColors({
       light:'#F3F7FB',
-      backdrop:'#222225', //C2C5CD
+      backdrop:'#222225',
       accent:'#004BA4',
       selected: '#D65265',
       text:'#151515'
@@ -29,6 +29,11 @@ export default class Interface extends React.Component {
     window.addEventListener('resize', () => {
       this.updateQuery();
     })
+  }
+
+  componentDidUpdate() {
+    let innerHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    document.documentElement.style.setProperty('--inner-height', `${innerHeight}px`);
   }
 
   updateQuery() {

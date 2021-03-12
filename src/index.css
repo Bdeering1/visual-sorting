@@ -1,5 +1,9 @@
+:root {
+  --inner-height: calc(100vh - calc(100vh - 100%));
+}
+
 html {
-  height: calc(100vh - calc(100vh - 100%));
+  height: var(--inner-height);
 }
 
 body {

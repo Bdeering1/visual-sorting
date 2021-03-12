@@ -75,9 +75,9 @@ $slider-color: rgba(216,221,224,0.9);
 
 .counter {
     position: absolute;
+    top: 110%;
     width: $thumb-size + 8px;;
     height: $thumb-size + 8px;
-    transform: translateY(+3em);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -89,6 +89,7 @@ $slider-color: rgba(216,221,224,0.9);
         transform: rotate(270deg);
     }
     .counter {
+        top: unset; 
         display: none;
         transform: translateX(3em) translateY(+4px);
     }

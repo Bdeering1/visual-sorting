@@ -86,10 +86,9 @@
 
 .counter {
   position: absolute;
+  top: 110%;
   width: 36px;
   height: 36px;
-  -webkit-transform: translateY(3em);
-          transform: translateY(3em);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,6 +107,7 @@
             transform: rotate(270deg);
   }
   .counter {
+    top: unset;
     display: none;
     -webkit-transform: translateX(3em) translateY(4px);
             transform: translateX(3em) translateY(4px);

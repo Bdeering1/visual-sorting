@@ -21,6 +21,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
+  background: transparent;
 }
 
 .grid-wrapper {

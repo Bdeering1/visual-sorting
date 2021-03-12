@@ -24,6 +24,7 @@
   transition: box-shadow 200ms, -webkit-box-shadow 200ms;
   -webkit-transition: opacity 600ms;
   transition: opacity 600ms;
+  font-size: 0.9em;
 }
 
 .menu-item:focus {

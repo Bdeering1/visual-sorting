@@ -19,7 +19,7 @@ export const initArray = async () => {
 }
 
 export const resetArray = async (animTime) => {
-    setArray(generateArray(10, 900, getArraySize()));
+    setArray(generateArray(0, 875, getArraySize()));
     await sleep(animTime); /* waiting for animation to finish */
 }
 
