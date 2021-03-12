@@ -5,7 +5,7 @@
 }
 
 .interface {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +14,7 @@
 }
 
 .grid-wrapper {
+    height: 100%;
     width: 100%;
     display: grid;
     grid-template:
@@ -21,7 +22,7 @@
         " . graph . "
         " . menu . ";
     grid-template-columns: 5% 90% 5%;
-    grid-template-rows: 10vh 70vh 12.5vh;
+    grid-template-rows: 10% 75% 12.5%;
 }
 
 header {
@@ -45,6 +46,7 @@ header {
 
 @media (min-width: 850px) {
     .grid-wrapper {
+        height: fit-content;
         grid-template:
             " . sidepanel graph slider . "
             " . sidepanel menu slider .";

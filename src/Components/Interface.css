@@ -6,7 +6,7 @@
 }
 
 .interface {
-  height: 100vh;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,14 +24,15 @@
 }
 
 .grid-wrapper {
+  height: 100%;
   width: 100%;
   display: -ms-grid;
   display: grid;
   grid-template: " . slider ." " . graph . " " . menu . ";
   -ms-grid-columns: 5% 90% 5%;
       grid-template-columns: 5% 90% 5%;
-  -ms-grid-rows: 10vh 70vh 12.5vh;
-      grid-template-rows: 10vh 70vh 12.5vh;
+  -ms-grid-rows: 10% 75% 12.5%;
+      grid-template-rows: 10% 75% 12.5%;
 }
 
 header {
@@ -61,6 +62,9 @@ header .sub-title {
 
 @media (min-width: 850px) {
   .grid-wrapper {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     grid-template: " . sidepanel graph slider . " " . sidepanel menu slider .";
     -ms-grid-columns: 10% 5% 70% 5% 10%;
         grid-template-columns: 10% 5% 70% 5% 10%;

@@ -41,20 +41,20 @@ export default class Interface extends React.Component {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.backdrop}}>
         <div className="grid-wrapper">
-        <header>
-          <h1
-            className="title"
-            style={{
-              color: this.props.colors.accent
-            }}
-          >Visual Sorting App</h1>
-          <h2
-            className="sub-title"
-            style={{
-              color: this.props.colors.accent
-            }}
-          >By Bryn Deering</h2>
-        </header>
+          <header>
+            <h1
+              className="title"
+              style={{
+                color: this.props.colors.accent
+              }}
+            >Visual Sorting App</h1>
+            <h2
+              className="sub-title"
+              style={{
+                color: this.props.colors.accent
+              }}
+            >By Bryn Deering</h2>
+          </header>
           <Graph
             array={this.props.array}
             selected={this.props.selected}
