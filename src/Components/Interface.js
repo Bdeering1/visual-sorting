@@ -4,7 +4,7 @@ import Graph from './Graph/Graph';
 import Slider from './Slider/Slider';
 import SidePanel from './SidePanel/SidePanel';
 import Menu from './Menu/Menu';
-import '../fonts.css';
+import '../Fonts/fonts.css';
 
 
 export default class Interface extends React.Component {
@@ -29,6 +29,11 @@ export default class Interface extends React.Component {
     window.addEventListener('resize', () => {
       this.updateQuery();
     })
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        this.updateQuery();
+      }, 400);
+    })
   }
 
   componentDidUpdate() {
@@ -46,7 +51,11 @@ export default class Interface extends React.Component {
     return (
       <div className="interface" style={{backgroundColor: this.props.colors.backdrop}}>
         <div className="grid-wrapper">
-          <header>
+          <header
+            style={{
+              display: this.props.initialized ? 'none' : ''
+            }}
+          >
             <h1
               className="title"
               style={{

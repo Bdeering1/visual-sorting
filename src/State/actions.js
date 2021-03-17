@@ -1,4 +1,4 @@
-import { initArray, resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortCaller } from '../Utility/arrayMethods';
+import { initArray, resetArray, updateSize, sizeTooLarge, bubbleSort, mergeSortCaller, quickSortCaller } from '../Utility/arrayMethods';
 
 export const SET_COLORS = 'SET_COLORS';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
@@ -74,7 +74,7 @@ const stoppedSorting = () => {
 //Redux Thunk Actions
 const initSequence = () => {
     return async (dispatch) => {
-        await initArray();
+        await initArray(2700);
         dispatch(startInit());
         await resetArray(600);
         dispatch(endInit());
@@ -119,6 +119,14 @@ const startMergeSort = () => {
         dispatch(stoppedSorting());
     }
 }
+const startQuickSort = () => {
+    return async (dispatch, getState) => {
+        if (getState().sorting.isSorting) return;
+        dispatch(startedSorting());
+        await quickSortCaller();
+        dispatch(stoppedSorting());
+    }
+}
 
 export const thunkActions = {
     init: initSequence,
@@ -126,5 +134,6 @@ export const thunkActions = {
     updateSize: callUpdateSize,
     updateMax: updateMaxSize,
     bubbleSort: startBubbleSort,
-    mergeSort: startMergeSort
+    mergeSort: startMergeSort,
+    quickSort: startQuickSort
 }

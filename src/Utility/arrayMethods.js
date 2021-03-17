@@ -1,6 +1,6 @@
 import store from '../State/store';
 import { updateArray, updateSelected } from '../State/actions';
-import { generateArray, swapInArray, swapSortedInArray, selectTwo, selectSorted, sleep } from './util';
+import { generateArray, swapInArray, swapSortedInArray, setTwo, selectArea, sleep } from './util';
 
 
 const DEFAULT_ARRAY_SIZE = 32;
@@ -11,11 +11,10 @@ const setArray = (newArray) => store.dispatch(updateArray(newArray, newArray.len
 const setSelected = (newSelected) => store.dispatch(updateSelected(newSelected));
 
 
-export const initArray = async () => {
-    await sleep(2500); /* waiting for title to animate */
+export const initArray = async (animTime) => {
     setArray(generateArray(0, 0, getArraySize()));
     setSelected(generateArray(0, 0, getArraySize()));
-    await sleep(200);
+    await sleep(animTime); /* waiting for title to animate */
 }
 
 export const resetArray = async (animTime) => {
@@ -32,6 +31,8 @@ export const sizeTooLarge = () => {
     return (store.getState().sorting.maxSize < store.getState().sorting.arraySize);
 }
 
+
+/* BUBBLE SORT */
 export const bubbleSort = async () => {
     let arraySize = getArraySize();
     let currentArray = [...store.getState().sorting.array]; /* spread operator prevents mutation */
@@ -39,17 +40,19 @@ export const bubbleSort = async () => {
 
     for (let i = 0; i < arraySize - 1; i++) {
         for (let j = 0; j < arraySize-i-1; j++) {
-            setSelected(selectTwo(j, j + 1, currentSelection, 1));
+            setSelected(setTwo(j, j + 1, 1, currentSelection));
             await sleep(10000 / (arraySize*arraySize));
             if (currentArray[j] > currentArray[j + 1]) {
                 setArray(swapInArray(j, j + 1, currentArray));
                 await sleep(10000 / (arraySize*arraySize));
             }
-            setSelected(selectTwo(j, j + 1, currentSelection, 0));
+            setSelected(setTwo(j, j + 1, 0, currentSelection));
         }
     }
 }
 
+
+/* MERGE SORT */
 export const mergeSortCaller = async () => {
     let currentArray = [...store.getState().sorting.array]; /* spread operator prevents mutation */
     let currentSelection = [...store.getState().interface.selected];
@@ -57,7 +60,7 @@ export const mergeSortCaller = async () => {
     setArray(await mergeSort(currentArray, currentSelection, currentArray, 0));
 }
 
-const mergeSort = async (unsortedArray, currentSelection, currentArray, start) => {
+const mergeSort = async (unsortedArray, selection, fullArray, start) => {
     if (unsortedArray.length <= 1) {
         return unsortedArray;
     }
@@ -67,38 +70,82 @@ const mergeSort = async (unsortedArray, currentSelection, currentArray, start) =
     const right = unsortedArray.slice(middle);
 
     return await merge( /* extra arguments are used to update state array during sorting */
-        await mergeSort(left, currentSelection, currentArray, start),
-        await mergeSort(right, currentSelection, currentArray, start + middle),
+        await mergeSort(left, selection, fullArray, start),
+        await mergeSort(right, selection, fullArray, start + middle),
         start,
         start + middle,
-        currentSelection,
-        currentArray
+        selection,
+        fullArray
     );
 }
 
-const merge = async (left, right, start, middle, currentSelection, currentArray) => {
+const merge = async (leftArr, rightArr, start, middle, selection, fullArray) => {
     let sorted = [];
     let leftIdx = 0, rightIdx = 0;
 
-    while (leftIdx < left.length && rightIdx < right.length) {
-        setSelected(selectTwo(start + leftIdx, middle + rightIdx, currentSelection, 1));
-        await sleep(10000 / (currentSelection.length * Math.log(currentSelection.length)));
-        setSelected(selectTwo(start + leftIdx, middle + rightIdx, currentSelection, 0));
+    while (leftIdx < leftArr.length && rightIdx < rightArr.length) {
+        setSelected(setTwo(start + leftIdx, middle + rightIdx, 1, selection));
+        await sleep(10000 / (selection.length * Math.log(selection.length)));
+        setSelected(setTwo(start + leftIdx, middle + rightIdx, 0, selection));
 
-        if (left[leftIdx] < right[rightIdx]) {
-            sorted.push(left[leftIdx]);
+        if (leftArr[leftIdx] < rightArr[rightIdx]) {
+            sorted.push(leftArr[leftIdx]);
             leftIdx++;
         } else {
-            sorted.push(right[rightIdx]);
+            sorted.push(rightArr[rightIdx]);
             rightIdx++;
         }
     }
-    
-    sorted = sorted.concat(left.slice(leftIdx)).concat(right.slice(rightIdx));
 
-    setArray(swapSortedInArray(start, sorted, currentArray));
-    setSelected(selectSorted(start, sorted.length, currentSelection, 1));
-    await sleep(10000 / currentSelection.length);
-    setSelected(selectSorted(start, sorted.length, currentSelection, 0));
+    sorted = sorted.concat(leftArr.slice(leftIdx)).concat(rightArr.slice(rightIdx));
+
+    setArray(swapSortedInArray(start, sorted, fullArray));
+    setSelected(selectArea(start, sorted.length, 1, selection));
+    await sleep(10000 / selection.length);
+    setSelected(selectArea(start, sorted.length, 0, selection));
     return sorted;
-  }
+}
+
+
+/* QUICK SORT */
+export const quickSortCaller = async () => {
+    let currentArray = [...store.getState().sorting.array]; /* spread operator prevents mutation */
+    let currentSelection = [...store.getState().interface.selected];
+
+    setArray(await quickSort(currentArray, 0, currentArray.length - 1, currentSelection));
+}
+
+export const quickSort = async (array, low, high, selection) => {
+    if (low < high) {
+        let pivotIdx = await partition(array, low, high, selection);
+        await quickSort(array, low, pivotIdx, selection);
+        await quickSort(array, pivotIdx + 1, high, selection);
+    }
+    return array;
+}
+
+const partition = async (array, low, high, selection) => {
+    let pivotIdx = Math.floor((low + high) / 2);
+    setSelected(selectArea(pivotIdx, 1, 1, selection));
+    await sleep(10000 / selection.length);
+    let pivot = array[pivotIdx];
+    let i = low - 1, j = high + 1;
+    while (true) {
+        do {
+            i++;
+        } while (array[i] < pivot);
+        do {
+            j--;
+        } while (array[j] > pivot);
+        if (i >= j) {
+            setSelected(selectArea(pivotIdx, 1, 0, selection));
+            return j;
+        }
+        setSelected(setTwo(i, j, 1, selection));
+        await sleep(10000 / selection.length);
+        swapInArray(i, j, array);
+        setArray([...array]);
+        await sleep(10000 / selection.length);
+        setSelected(setTwo(i, j, 0, selection));
+    }
+}

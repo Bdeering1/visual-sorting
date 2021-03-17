@@ -18,12 +18,12 @@ export const swapSortedInArray = (start, sorted, array) => {
     }
     return [...array];
 }
-export const selectTwo = (first, second, array, val) => {
+export const setTwo = (first, second, val, array) => {
     array[first] = val;
     array[second] = val;
     return [...array];
 }
-export const selectSorted = (start, length, array, val) => {
+export const selectArea = (start, length, val, array) => {
     for (let i = 0; i < length; i++) {
         array[start + i] = val;
     }
