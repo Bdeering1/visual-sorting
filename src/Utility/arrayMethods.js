@@ -127,7 +127,7 @@ export const quickSort = async (array, low, high, selection) => {
 const partition = async (array, low, high, selection) => {
     let pivotIdx = Math.floor((low + high) / 2);
     setSelected(selectArea(pivotIdx, 1, 1, selection));
-    await sleep(10000 / selection.length);
+    await sleep(10000 / (selection.length * Math.log(selection.length)));
     let pivot = array[pivotIdx];
     let i = low - 1, j = high + 1;
     while (true) {
@@ -142,10 +142,10 @@ const partition = async (array, low, high, selection) => {
             return j;
         }
         setSelected(setTwo(i, j, 1, selection));
-        await sleep(10000 / selection.length);
+        await sleep(10000 / (selection.length * Math.log(selection.length)));
         swapInArray(i, j, array);
         setArray([...array]);
-        await sleep(10000 / selection.length);
+        await sleep(10000 / (selection.length * Math.log(selection.length)));
         setSelected(setTwo(i, j, 0, selection));
     }
 }
