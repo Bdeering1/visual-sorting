@@ -107,7 +107,7 @@ const merge = async (leftArr, rightArr, start, middle, selection, fullArray) => 
 }
 
 
-/* QUICK SORT */
+/* QUICK SORT (Hoare partition scheme) */
 export const quickSortCaller = async () => {
     let currentArray = [...store.getState().sorting.array]; /* spread operator prevents mutation */
     let currentSelection = [...store.getState().interface.selected];
@@ -133,12 +133,19 @@ const partition = async (array, low, high, selection) => {
     while (true) {
         do {
             i++;
+            setSelected(selectArea(i, 1, 1, selection));
+            await sleep(5000 / (selection.length * Math.log(selection.length)));
+            //setSelected(selectArea(i, 1, 0, selection));
         } while (array[i] < pivot);
         do {
             j--;
+            setSelected(selectArea(j, 1, 1, selection));
+            await sleep(5000 / (selection.length * Math.log(selection.length)));
+            //setSelected(selectArea(j, 1, 0, selection));
         } while (array[j] > pivot);
         if (i >= j) {
             setSelected(selectArea(pivotIdx, 1, 0, selection));
+            setSelected(selectArea(low, high - low + 1, 0, selection));
             return j;
         }
         setSelected(setTwo(i, j, 1, selection));
@@ -146,6 +153,6 @@ const partition = async (array, low, high, selection) => {
         swapInArray(i, j, array);
         setArray([...array]);
         await sleep(10000 / (selection.length * Math.log(selection.length)));
-        setSelected(setTwo(i, j, 0, selection));
+        //setSelected(setTwo(i, j, 0, selection));
     }
 }
