@@ -25,6 +25,7 @@ export default class SideBar extends React.Component {
           value={this.props.arraySize}
           className="range-slider"
           id="range-slider"
+          aria-label="Array Size Slider"
           onChange={this.handleChange}
           style={{
             width: this.props.query ? this.state.heightRatio*100 + "vh" : "100%"
