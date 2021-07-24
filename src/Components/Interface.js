@@ -19,11 +19,11 @@ export default class Interface extends React.Component {
   componentDidMount() {
     this.props.actions.init();
     this.props.setColors({
-      light:'#F3F7FB',
-      backdrop:'#222225',
-      accent:'#004BA4',
-      selected: '#D65265',
-      text:'#151515'
+      light:'#FAFAFA',
+      backdrop:'#C3D1DF',
+      accent:'#1C5491',
+      selected: '#D85A5E',
+      text:'#130330'
     });
     this.updateQuery();
     window.addEventListener('resize', () => {

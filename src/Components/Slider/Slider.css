@@ -37,21 +37,21 @@
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(216, 221, 224, 0.9);
+  background: rgba(250, 250, 250, 0.9);
 }
 
 .range-slider::-moz-range-track {
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(216, 221, 224, 0.9);
+  background: rgba(250, 250, 250, 0.9);
 }
 
 .range-slider::-ms-track {
   height: 14px;
   border-radius: 14px;
   cursor: pointer;
-  background: rgba(216, 221, 224, 0.9);
+  background: rgba(250, 250, 250, 0.9);
   color: transparent;
 }
 
@@ -62,7 +62,7 @@
   -webkit-transform: translateY(-7px);
           transform: translateY(-7px);
   border-radius: 50%;
-  background: #004BA4;
+  background: #1C5491;
   cursor: pointer;
 }
 
@@ -71,7 +71,7 @@
   width: 28px;
   border-style: none;
   border-radius: 50%;
-  background: #004BA4;
+  background: #1C5491;
   cursor: pointer;
 }
 
@@ -80,7 +80,7 @@
   width: 28px;
   transform: translateY(-7px);
   border-radius: 50%;
-  background: #004BA4;
+  background: #1C5491;
   cursor: pointer;
 }
 
