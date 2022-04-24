@@ -19,12 +19,12 @@ export default class Interface extends React.Component {
   componentDidMount() {
     this.props.actions.init();
     this.props.setColors({
-      light:'#FAFAFA',
-      backdrop:'#C3D1DF',
-      accent:'#1C5491',
-      selected: '#D85A5E',
-      text:'#130330'
-    });
+			light: '#182C61',
+			backdrop: '#130330',
+			accent: '#1C5491',
+			selected: '#D85A5E',
+			text: '#C3D1DF',
+		});
     this.updateQuery();
     window.addEventListener('resize', () => {
       this.updateQuery();
@@ -49,51 +49,55 @@ export default class Interface extends React.Component {
 
   render() {
     return (
-      <div className="interface" style={{backgroundColor: this.props.colors.backdrop}}>
-        <div className="grid-wrapper">
-          <header
-            style={{
-              display: this.props.initialized ? 'none' : ''
-            }}
-          >
-            <h1
-              className="title"
-              style={{
-                color: this.props.colors.accent
-              }}
-            >Visual Sorting App</h1>
-            <h2
-              className="sub-title"
-              style={{
-                color: this.props.colors.accent
-              }}
-            >By Bryn Deering</h2>
-          </header>
-          <Graph
-            array={this.props.array}
-            selected={this.props.selected}
-            colors={this.props.colors}
-            initialized={this.props.initialized}
-            transition={this.props.transition}
-            arraySize={this.props.arraySize}
-          />
-          <Slider
-            updateSize={this.props.actions.updateSize}
-            arraySize={this.props.arraySize}
-            colors={this.props.colors}
-            initialized={this.props.initialized}
-            query={this.state.query}
-            min={this.props.minSize}
-            max={this.props.maxSize}
-          />
-          <SidePanel />
-          <Menu
-          actions={this.props.actions}
-          colors={this.props.colors}
-          initialized={this.props.initialized}
-          />
-        </div>
-      </div>
-    );
+			<div className='interface' style={{backgroundColor: this.props.colors.backdrop}}>
+				<div className='grid-wrapper'>
+					<header
+						style={{
+							display: this.props.initialized ? 'none' : '',
+						}}
+					>
+						<h1
+							className='title'
+							style={{
+								color: this.props.colors.text,
+							}}
+						>
+							Visual Sorting App
+						</h1>
+						<h2
+							className='sub-title'
+							style={{
+								color: this.props.colors.text,
+							}}
+						>
+							By Bryn Deering
+						</h2>
+					</header>
+					<Graph
+						array={this.props.array}
+						selected={this.props.selected}
+						colors={this.props.colors}
+						initialized={this.props.initialized}
+						transition={this.props.transition}
+						arraySize={this.props.arraySize}
+					/>
+					<Slider
+						updateSize={this.props.actions.updateSize}
+						arraySize={this.props.arraySize}
+						colors={this.props.colors}
+						initialized={this.props.initialized}
+						query={this.state.query}
+						min={this.props.minSize}
+						max={this.props.maxSize}
+					/>
+					<SidePanel />
+					<Menu
+						actions={this.props.actions}
+						colors={this.props.colors}
+						initialized={this.props.initialized}
+					/>
+				</div>
+			</div>
+		);
   }
 }

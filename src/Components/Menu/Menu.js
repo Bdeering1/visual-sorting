@@ -27,7 +27,7 @@ export default class Menu extends React.Component {
             <div
                 className="menu-container"
                 style={{
-                    background: this.props.initialized ? '#FAFAFA' : this.props.colors.light
+                    background: this.props.colors.light
                 }}
             >
                 {this.state.buttons.map((button, idx) => (
@@ -38,7 +38,7 @@ export default class Menu extends React.Component {
                         style={{
                             backgroundColor: this.props.colors.accent,
                             borderColor: this.props.colors.text,
-                            color: this.props.colors.light,
+                            color: this.props.colors.text,
                             width: 90 / this.state.btnCount + '%',
                             display: this.props.initialized ? '' : 'none'
                         }}
