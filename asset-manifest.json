@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Visual-Sorting-App/static/css/main.dd77445b.chunk.css",
-    "main.js": "/Visual-Sorting-App/static/js/main.a2398f21.chunk.js",
-    "main.js.map": "/Visual-Sorting-App/static/js/main.a2398f21.chunk.js.map",
+    "main.css": "/Visual-Sorting-App/static/css/main.1a2a7fbb.chunk.css",
+    "main.js": "/Visual-Sorting-App/static/js/main.7127b903.chunk.js",
+    "main.js.map": "/Visual-Sorting-App/static/js/main.7127b903.chunk.js.map",
     "runtime-main.js": "/Visual-Sorting-App/static/js/runtime-main.775a9135.js",
     "runtime-main.js.map": "/Visual-Sorting-App/static/js/runtime-main.775a9135.js.map",
     "static/js/2.47c6c83f.chunk.js": "/Visual-Sorting-App/static/js/2.47c6c83f.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.e33304a3.chunk.js": "/Visual-Sorting-App/static/js/3.e33304a3.chunk.js",
     "static/js/3.e33304a3.chunk.js.map": "/Visual-Sorting-App/static/js/3.e33304a3.chunk.js.map",
     "index.html": "/Visual-Sorting-App/index.html",
-    "static/css/main.dd77445b.chunk.css.map": "/Visual-Sorting-App/static/css/main.dd77445b.chunk.css.map",
+    "static/css/main.1a2a7fbb.chunk.css.map": "/Visual-Sorting-App/static/css/main.1a2a7fbb.chunk.css.map",
     "static/js/2.47c6c83f.chunk.js.LICENSE.txt": "/Visual-Sorting-App/static/js/2.47c6c83f.chunk.js.LICENSE.txt",
     "static/media/fonts.css": "/Visual-Sorting-App/static/media/veganstylepersonaluse-5y58-webfont.2a03ba22.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.775a9135.js",
     "static/js/2.47c6c83f.chunk.js",
-    "static/css/main.dd77445b.chunk.css",
-    "static/js/main.a2398f21.chunk.js"
+    "static/css/main.1a2a7fbb.chunk.css",
+    "static/js/main.7127b903.chunk.js"
   ]
 }
