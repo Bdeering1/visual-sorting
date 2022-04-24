@@ -36,8 +36,8 @@ export default class SideBar extends React.Component {
 					htmlFor='range-slider'
 					className='counter'
 					style={{
-						color: this.props.query ? this.props.colors.text : this.props.colors.light,
-						backgroundColor: this.props.query ? this.props.colors.light : this.props.colors.accent,
+						color: this.props.colors.text,
+						backgroundColor: this.props.colors.accent,
 						bottom: this.props.query
 							? `calc(${outputPos * this.state.heightRatio}vh - ${outputPos}*28px/100)`
 							: 0,

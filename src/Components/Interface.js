@@ -23,7 +23,7 @@ export default class Interface extends React.Component {
 			backdrop: '#130330',
 			accent: '#1C5491',
 			selected: '#D85A5E',
-			text: '#C3D1DF',
+			text: '#F5F5F5',
 		});
     this.updateQuery();
     window.addEventListener('resize', () => {
