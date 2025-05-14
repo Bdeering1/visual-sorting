@@ -1,6 +1,6 @@
 {
-  "name": "visual-sorting-app",
-  "homepage": "https://bdeering1.github.io/Visual-Sorting-App",
+  "name": "visual-sorting",
+  "homepage": "https://bdeering1.github.io/visual-sorting",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

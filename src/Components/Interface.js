@@ -62,7 +62,7 @@ export default class Interface extends React.Component {
 								color: this.props.colors.text,
 							}}
 						>
-							Visual Sorting App
+							Visual Sorting
 						</h1>
 						<h2
 							className='sub-title'
